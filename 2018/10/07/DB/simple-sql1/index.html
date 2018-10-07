@@ -238,6 +238,12 @@
 <h6 id="48-查询各科成绩最高和最低的分：以如下形式显示：课程ID，最高分，最低分"><a href="#48-查询各科成绩最高和最低的分：以如下形式显示：课程ID，最高分，最低分" class="headerlink" title="48.查询各科成绩最高和最低的分：以如下形式显示：课程ID，最高分，最低分"></a>48.查询各科成绩最高和最低的分：以如下形式显示：课程ID，最高分，最低分</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> cno,<span class="keyword">max</span>(score) max_score,<span class="keyword">min</span>(score) min_score</span><br><span class="line"><span class="keyword">from</span> sc</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> cno;</span><br></pre></td></tr></table></figure>
 <h6 id="49-检索至少选修两门课程的学生学号"><a href="#49-检索至少选修两门课程的学生学号" class="headerlink" title="49.检索至少选修两门课程的学生学号"></a>49.检索至少选修两门课程的学生学号</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> sno,<span class="keyword">count</span>(*)</span><br><span class="line"><span class="keyword">from</span> sc</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> sno</span><br><span class="line"><span class="keyword">having</span> <span class="keyword">count</span>(*)&gt;=<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
 <h6 id="50-删除“s002”同学的“c001”课程的成绩"><a href="#50-删除“s002”同学的“c001”课程的成绩" class="headerlink" title="50.删除“s002”同学的“c001”课程的成绩"></a>50.删除“s002”同学的“c001”课程的成绩</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> sc <span class="keyword">where</span> sno = <span class="string">'s002'</span> <span class="keyword">and</span> cno = <span class="string">'c001'</span>;</span><br></pre></td></tr></table></figure>
+<font color="pink">xixixixixixi~</font><br><font color="pink">望各位道友能原谅这突兀的粉色，满足我的少女心</font><br><font color="pink">笔芯ღ( ´･ᴗ･` )</font>
+
+
+
+
+
 
             </div>
 
