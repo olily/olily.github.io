@@ -69,7 +69,7 @@
 
 
 <!--  代码渲染  -->
-<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/prism_default.css" />
 <link rel="stylesheet" href="/css/typo.css" />
 <!-- 文章页 -->
 <body class="is-loading">
@@ -182,8 +182,12 @@
 <li><p>下载本主题并且放置于<code>themes</code>目录下，更改主题名字，并在站点根目录的配置文件<code>_config.yml</code>中启用该主题。</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: miccall</span><br></pre></td></tr></table></figure>
-<ul>
+<pre><code>    # Extensions
+    ## Plugins: https://hexo.io/plugins/
+    ## Themes: https://hexo.io/themes/
+    theme: miccall
+
+</code></pre><ul>
 <li>在主题的配置文件<code>_config.yml</code>中修改相应的值。</li>
 </ul>
 <h2 id="Docs-文档"><a href="#Docs-文档" class="headerlink" title="Docs 文档"></a>Docs 文档</h2><p>以下内容均为主题的配置文件 <code>_config.yml</code>内容（请区别于站点的配置文件）。</p>
@@ -193,8 +197,48 @@
 <h5 id="二-Intro-主题刚开始加载的界面"><a href="#二-Intro-主题刚开始加载的界面" class="headerlink" title="二 . Intro: 主题刚开始加载的界面"></a>二 . Intro: 主题刚开始加载的界面</h5><p>1.名字<br>    <strong>name:</strong> MICCALL</p>
 <p>2.第二标语<br>    <strong>slogan:</strong> “Whatever is worth doing is worth doing well I’ll think of you every step of the way”</p>
 <p>3.主页按钮上面的文字<br>    <strong>HeadButton:</strong> MICCALL</p>
-<h5 id="三-Nav-导航栏"><a href="#三-Nav-导航栏" class="headerlink" title="三 .Nav: 导航栏"></a>三 .Nav: 导航栏</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">Home_name: 主页 # 主页名字</span><br><span class="line">is_use_categories : true # 是否启用分类</span><br><span class="line">categories_name: 分类 # 分类名字</span><br><span class="line">is_use_archives : false # 是否启用归档</span><br><span class="line">archives_name: 归档 # 归档名字</span><br><span class="line">icon: # 导航栏上的图标</span><br><span class="line">    github:</span><br><span class="line">        use: true # 是否启用</span><br><span class="line">        link: https://github.com/miccall # 点击地址</span><br><span class="line">    Twitter:</span><br><span class="line">        use: false</span><br><span class="line">        link:</span><br><span class="line">    Facebook:</span><br><span class="line">        use: false</span><br><span class="line">        link:</span><br><span class="line">    Instagram:</span><br><span class="line">        use: false</span><br><span class="line">        link:</span><br><span class="line">pages:</span><br><span class="line"># 自定义连接页</span><br><span class="line"># link 的参数为相对路径，对应 hexo 目录下的 source 件夹内的相应文件夹</span><br><span class="line">    简历:</span><br><span class="line">        link: &quot;/about/&quot;</span><br><span class="line">    团队 :</span><br><span class="line">        link: &quot;/group/&quot;</span><br><span class="line">    图库 :</span><br><span class="line">        link: &quot;/gallery/&quot;</span><br><span class="line">    标签:</span><br><span class="line">        link: &quot;/tag/&quot;</span><br><span class="line">    #自定义标签名</span><br><span class="line">    #   link：“路径”</span><br><span class="line"></span><br><span class="line">MainFirst: # 导航栏下面的主页</span><br><span class="line">    name: Miccall Metro # 大标题名字</span><br><span class="line">    description: Welcome to my Blog   # 第二标签 描述</span><br><span class="line">    pic_url: /img/me.jpg # 图片地址</span><br><span class="line">    goto_ulr: &quot;&quot; # 点击跳转</span><br><span class="line"></span><br><span class="line">Gallery: # 图库页</span><br><span class="line">    title: Mr.metro</span><br><span class="line">    description: Just another fine responsive</span><br></pre></td></tr></table></figure>
-<p>使用方法 ：</p>
+<h5 id="三-Nav-导航栏"><a href="#三-Nav-导航栏" class="headerlink" title="三 .Nav: 导航栏"></a>三 .Nav: 导航栏</h5><pre><code>    Home_name: 主页 # 主页名字
+    is_use_categories : true # 是否启用分类
+    categories_name: 分类 # 分类名字
+    is_use_archives : false # 是否启用归档
+    archives_name: 归档 # 归档名字
+    icon: # 导航栏上的图标
+        github:
+            use: true # 是否启用
+            link: https://github.com/miccall # 点击地址
+        Twitter:
+            use: false
+            link:
+        Facebook:
+            use: false
+            link:
+        Instagram:
+            use: false
+            link:
+    pages:
+    # 自定义连接页
+    # link 的参数为相对路径，对应 hexo 目录下的 source 件夹内的相应文件夹
+        简历:
+            link: &quot;/about/&quot;
+        团队 :
+            link: &quot;/group/&quot;
+        图库 :
+            link: &quot;/gallery/&quot;
+        标签:
+            link: &quot;/tag/&quot;
+        #自定义标签名
+        #   link：“路径”
+
+    MainFirst: # 导航栏下面的主页
+        name: Miccall Metro # 大标题名字
+        description: Welcome to my Blog   # 第二标签 描述
+        pic_url: /img/me.jpg # 图片地址
+        goto_ulr: &quot;&quot; # 点击跳转
+
+    Gallery: # 图库页
+        title: Mr.metro
+        description: Just another fine responsive
+</code></pre><p>使用方法 ：</p>
 <ol>
 <li><p>创建「about」页面</p>
 <ul>
@@ -205,21 +249,44 @@
 <ul>
 <li>在站点根目录的<code>source</code>目录，新建一个<code>group</code>目录，这个文件目录与<code>link: &quot;/group/&quot;</code>所对应，在里面创建一个<code>index.md</code>文件。</li>
 <li><p><code>front-matter</code>里面添加属性</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: group</span><br><span class="line">date: 2017-01-17 21:05:04</span><br><span class="line">layout: links</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后在站点根目录的 <code>source</code>目录<code>_data</code>目录(没有的话新建一个)。然后在里面新建一个<code>links.yml</code>文件，多成员依次添加。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 成员1</span><br><span class="line">名称 :</span><br><span class="line">      link: 点击连接地址   </span><br><span class="line">      avatar: 头像地址</span><br><span class="line">      descr: 描述</span><br><span class="line"># 成员2</span><br><span class="line">名称 :</span><br><span class="line">      link: 点击连接地址   </span><br><span class="line">      avatar: 头像地址</span><br><span class="line">      descr: 描述</span><br></pre></td></tr></table></figure>
-</li>
+<pre><code>  ---
+  title: group
+  date: 2017-01-17 21:05:04
+  layout: links
+  ---
+</code></pre></li>
+<li>然后在站点根目录的 <code>source</code>目录<code>_data</code>目录(没有的话新建一个)。然后在里面新建一个<code>links.yml</code>文件，多成员依次添加。<pre><code>  # 成员1
+  名称 :
+        link: 点击连接地址   
+        avatar: 头像地址
+        descr: 描述
+  # 成员2
+  名称 :
+        link: 点击连接地址   
+        avatar: 头像地址
+        descr: 描述
+</code></pre></li>
 </ul>
 </li>
 <li><p>创建「gallery」页面</p>
 <ul>
 <li><p>在站点根目录的<code>source</code>目录，新建一个<code>galler</code>y目录，这个文件目录与<code>link: &quot;/gallery/&quot;</code>所对应 ，在里面创建一个<code>index.md</code>文件, <code>front-matter</code>里面添加属性</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Gallery</span><br><span class="line">date: 2017-01-17 21:39:03</span><br><span class="line">layout: gallery</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-</li>
+<pre><code>  ---
+  title: Gallery
+  date: 2017-01-17 21:39:03
+  layout: gallery
+  ---
+</code></pre></li>
 <li><p>然后在站点根目录的<code>source</code>目录 <code>_data</code>目录(没有的话新建一个)。然后在里面新建一个<code>gallery.yml</code>文件，多图片依次添加，图片名称不要重复。</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">图片名称1:</span><br><span class="line">  full_link: 图片地址</span><br><span class="line">  thumb_link: 略缩图地址</span><br><span class="line">  descr: 图片描述</span><br><span class="line">图片名称2:</span><br><span class="line">  full_link: 图片地址</span><br><span class="line">  thumb_link: 略缩图地址</span><br><span class="line">  descr: 图片描述</span><br></pre></td></tr></table></figure>
-</li>
+<pre><code>  图片名称1:
+    full_link: 图片地址
+    thumb_link: 略缩图地址
+    descr: 图片描述
+  图片名称2:
+    full_link: 图片地址
+    thumb_link: 略缩图地址
+    descr: 图片描述
+</code></pre></li>
 </ul>
 </li>
 <li><p>创建「tag」页面</p>
@@ -227,7 +294,13 @@
 </ol>
 <pre><code>- 在站点根目录的`source`目录，新建一个`tag`目录，这个文件目录与`link: &quot;/tag/&quot;`所对应  ，在里面创建一个`index.md `文件，`front-matter`里面添加属性。
 
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2017-01-17 21:39:14</span><br><span class="line">layout: tags</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+    ```
+    ---
+    title: tags
+    date: 2017-01-17 21:39:14
+    layout: tags
+    ---
+    ```
 </code></pre><ol>
 <li><p>修改背景图片：更换<code>\themes\miccall\source\images</code>中的<code>bg.jpg</code>，不要改名，否则需要更改CSS内容。</p>
 </li>
@@ -238,18 +311,51 @@
 <li><p>字体文件不建议修改。</p>
 </li>
 <li><p>评论系统：<code>use</code>的配置选项<code>false | duoshuo | disqus | disqus_click | changyan</code></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">comment:</span><br><span class="line">   use: disqus_click</span><br><span class="line">   shortname: http-miccall-tech</span><br><span class="line">   duoshuo_thread_key_type: path</span><br><span class="line">   duoshuo_embed_js_url: &quot;https://static.duoshuo.com/embed.js&quot;</span><br><span class="line">   changyan_appid:</span><br><span class="line">   changyan_conf:</span><br><span class="line">   changyan_thread_key_type: path</span><br></pre></td></tr></table></figure>
-</li>
+<pre><code> comment:
+    use: disqus_click
+    shortname: http-miccall-tech
+    duoshuo_thread_key_type: path
+    duoshuo_embed_js_url: &quot;https://static.duoshuo.com/embed.js&quot;
+    changyan_appid:
+    changyan_conf:
+    changyan_thread_key_type: path
+</code></pre></li>
 <li><p>搜索系统：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">search:</span><br><span class="line">  use: google</span><br><span class="line">  swiftype_key: Just another fine responsive</span><br></pre></td></tr></table></figure>
-</li>
+<pre><code> search:
+   use: google
+   swiftype_key: Just another fine responsive  
+</code></pre></li>
 <li><p>访问量系统</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Leancloud Views</span><br><span class="line">leancloud:</span><br><span class="line">    enable: false</span><br><span class="line">    app_id: # 你的 app_id</span><br><span class="line">    app_key: # 你的 app_key</span><br><span class="line">    av_core_mini: &quot;https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js&quot;</span><br></pre></td></tr></table></figure>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">busuanzi:</span><br><span class="line">  enable: true  #  是否开启</span><br><span class="line">  all_site_uv: true # 全局启用</span><br><span class="line">  post_pv: true # 单独文章启用</span><br><span class="line">  busuanzi_pure_mini_js: &quot;https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;</span><br></pre></td></tr></table></figure>
-</li>
+<pre><code> Leancloud Views
+ leancloud:
+     enable: false
+     app_id: # 你的 app_id
+     app_key: # 你的 app_key
+     av_core_mini: &quot;https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js&quot;
+</code></pre></li>
+</ol>
+<pre><code>```
+busuanzi:
+  enable: true  #  是否开启
+  all_site_uv: true # 全局启用
+  post_pv: true # 单独文章启用
+  busuanzi_pure_mini_js: &quot;https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&quot;
+```
+</code></pre><ol>
 <li><p>开始创作你的文章：文章目录在<code>blog/source/_post</code>目录下新建一个<code>.md</code>文件：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: # 文章标题  </span><br><span class="line">date: 2017/3/27 13:48:25  # 文章发表时间</span><br><span class="line">tags:</span><br><span class="line">- 标签1</span><br><span class="line">- 标签2 (可选)</span><br><span class="line">categories: Algorithm # 分类</span><br><span class="line">thumbnail: https://xxxxxxxxxx.png # 略缩图</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">文章正文</span><br></pre></td></tr></table></figure>
-</li>
+<pre><code> ---
+ title: # 文章标题  
+ date: 2017/3/27 13:48:25  # 文章发表时间
+ tags:
+ - 标签1
+ - 标签2 (可选)
+ categories: Algorithm # 分类
+ thumbnail: https://xxxxxxxxxx.png # 略缩图
+ ---
+
+ 文章正文
+
+</code></pre></li>
 </ol>
 <h3 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a>代码高亮</h3><p>安装组件参阅<a href="http://github.com/ele828/hexo-prism-plugin" target="_blank" rel="noopener">http://github.com/ele828/hexo-prism-plugin</a></p>
 <h2 id="Contributing-贡献"><a href="#Contributing-贡献" class="headerlink" title="Contributing 贡献"></a>Contributing 贡献</h2><p>欢迎各种形式的贡献，包括但不限于优化，添加功能，文档 &amp; 代码的改进，问题和 bugs 的报告。期待您的 Pull Request。</p>
