@@ -46,27 +46,33 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="笑一笑，十年少 xixixixixixixixixixixixixixixixixixixixi 闲来无事刷了点sql简简单单的50句查询语句，修身养性不错不错自己写的时候发现网上很多都是sqlite、oracle的所以，就记录一下下mysql咯，方便以后自己用如果能为其他sql道友带来帮助那就再好不过啦同时如果哪里有不对的或者写的不好的地方欢迎指正，Olily在此谢过啦在此声明50句并非原创，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简单sql练习50句之一">
+<meta property="og:url" content="http://yoursite.com/2018/10/07/DataBase/simple-sql1/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="笑一笑，十年少 xixixixixixixixixixixixixixixixixixixixi 闲来无事刷了点sql简简单单的50句查询语句，修身养性不错不错自己写的时候发现网上很多都是sqlite、oracle的所以，就记录一下下mysql咯，方便以后自己用如果能为其他sql道友带来帮助那就再好不过啦同时如果哪里有不对的或者写的不好的地方欢迎指正，Olily在此谢过啦在此声明50句并非原创，">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-10-07T04:17:17.000Z">
+<meta property="article:modified_time" content="2018-11-22T03:05:34.623Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="mysql">
+<meta property="article:tag" content="数据库">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/">
+<link rel="canonical" href="http://yoursite.com/2018/10/07/DataBase/simple-sql1/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false
+    isHome: false,
+    isPost: true
   };
 </script>
 
-  <title>Hexo</title>
+  <title>简单sql练习50句之一 | Hexo</title>
   
 
 
@@ -191,606 +197,10 @@
             
 
   <div class="posts-expand">
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/11/Advanced%20PAT/1155-Heap-Paths/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/11/Advanced%20PAT/1155-Heap-Paths/" class="post-title-link" itemprop="url">1155 Heap Paths</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-01-11 15:46:10 / Modified: 16:11:49" itemprop="dateCreated datePublished" datetime="2020-01-11T15:46:10+08:00">2020-01-11</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Advanced-PAT/" itemprop="url" rel="index">
-                    <span itemprop="name">Advanced PAT</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
-          <h4 id="笑一笑，十年少"><a href="#笑一笑，十年少" class="headerlink" title=" 笑一笑，十年少 "></a><font color=pink> 笑一笑，十年少 </font></h4><h4 id="xixixixi-xixixixi-xixixixi-xixixixi-xixixixi"><a href="#xixixixi-xixixixi-xixixixi-xixixixi-xixixixi" class="headerlink" title="xixixixi ~ xixixixi ~ xixixixi ~ xixixixi ~ xixixixi "></a><font color=pink>xixixixi ~ xixixixi ~ xixixixi ~ xixixixi ~ xixixixi </font></h4><h3 id="1155-Heap-Paths-30分"><a href="#1155-Heap-Paths-30分" class="headerlink" title="1155 Heap Paths (30分)"></a>1155 Heap Paths (30分)</h3><h5 id="Directions"><a href="#Directions" class="headerlink" title="Directions:"></a>Directions:</h5><p>In computer science, a heap is a specialized tree-based data structure that satisfies the heap property: if P is a parent node of C, then the key (the value) of P is either greater than or equal to (in a max heap) or less than or equal to (in a min heap) the key of C. A common implementation of a heap is the binary heap, in which the tree is a complete binary tree. (Quoted from Wikipedia at <a href="https://en.wikipedia.org/wiki/Heap_(data_structure)" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Heap_(data_structure)</a>)</p>
-<p>One thing for sure is that all the keys along any path from the root to a leaf in a max/min heap must be in non-increasing/non-decreasing order.</p>
-<p>Your job is to check every path in a given complete binary tree, in order to tell if it is a heap or not.</p>
-<h5 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h5><p>Each input file contains one test case. For each case, the first line gives a positive integer N (1&lt;N≤1,000), the number of keys in the tree. Then the next line contains N distinct integer keys (all in the range of int), which gives the level order traversal sequence of a complete binary tree.</p>
-<h5 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h5><p>For each given tree, first print all the paths from the root to the leaves. Each path occupies a line, with all the numbers separated by a space, and no extra space at the beginning or the end of the line. The paths must be printed in the following order: for each node in the tree, all the paths in its right subtree must be printed before those in its left subtree.</p>
-<p>Finally print in a line Max Heap if it is a max heap, or Min Heap for a min heap, or Not Heap if it is not a heap at all.</p>
-<h5 id="Sample-Input1"><a href="#Sample-Input1" class="headerlink" title="Sample Input1:"></a>Sample Input1:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">8</span><br><span class="line">98 72 86 60 65 12 23 50</span><br></pre></td></tr></table></figure>
-<h5 id="Sample-Output1"><a href="#Sample-Output1" class="headerlink" title="Sample Output1:"></a>Sample Output1:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">98 86 23</span><br><span class="line">98 86 12</span><br><span class="line">98 72 65</span><br><span class="line">98 72 60 50</span><br><span class="line">Max Heap</span><br></pre></td></tr></table></figure>
-<h5 id="Sample-Input2"><a href="#Sample-Input2" class="headerlink" title="Sample Input2:"></a>Sample Input2:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">8</span><br><span class="line">8 38 25 58 52 82 70 60</span><br></pre></td></tr></table></figure>
-<h5 id="Sample-Output2"><a href="#Sample-Output2" class="headerlink" title="Sample Output2:"></a>Sample Output2:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">8 25 70</span><br><span class="line">8 25 82</span><br><span class="line">8 38 52</span><br><span class="line">8 38 58 60</span><br><span class="line">Min Heap</span><br></pre></td></tr></table></figure>
-<h5 id="Sample-Input3"><a href="#Sample-Input3" class="headerlink" title="Sample Input3:"></a>Sample Input3:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">8</span><br><span class="line">10 28 15 12 34 9 8 56</span><br></pre></td></tr></table></figure>
-<h5 id="Sample-Output3"><a href="#Sample-Output3" class="headerlink" title="Sample Output3:"></a>Sample Output3:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">10 15 8</span><br><span class="line">10 15 9</span><br><span class="line">10 28 34</span><br><span class="line">10 28 12 56</span><br><span class="line">Not Heap</span><br></pre></td></tr></table></figure>
-
-<h5 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h5><ol>
-<li>题目描述：找出堆从根节点到每一个叶节点的路径并输出，同时有如下要求：<ul>
-<li>输出顺序为从最右叶节点到最左叶节点；</li>
-<li>判断堆为大根堆还是小根堆或者不是堆。</li>
-</ul>
-</li>
-<li>思路分析：<ul>
-<li>根据堆形态为完全二叉树的性质，父节点与子节点一维数组表示下表标关系为n、2n-1、2n；</li>
-<li>数组下标可以用二进制表示，此时二进制0、1序列即记录了该节点的路径；</li>
-<li>每一条路径单增则为小根堆，递减则为小根堆，否则不是堆；</li>
-</ul>
-</li>
-<li>Note:本题会有输出格式判定<ul>
-<li>每一条路径最后一个数字后无空格。</li>
-</ul>
-</li>
-</ol>
-<h5 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回1则为单调递减；返回-1则为单调递增；返回0则不单调</span></span><br><span class="line"><span class="comment">//此处通过栈实现，若通过队列，则递增返回1</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">isHeap</span><span class="params">(<span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x1, x2;</span><br><span class="line">	<span class="keyword">int</span> flag1 = <span class="number">-1</span>, flag2 = <span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">if</span> (!s.empty())x1 = s.top();</span><br><span class="line">	s.pop();</span><br><span class="line">	<span class="keyword">if</span> (!s.empty())x2 = s.top();</span><br><span class="line">	s.pop();</span><br><span class="line">	<span class="keyword">if</span> (x1 - x2 &gt; <span class="number">0</span>)flag1 = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (!s.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		flag2 = <span class="number">-1</span>;</span><br><span class="line">		x1 = x2;</span><br><span class="line">		x2 = s.top();</span><br><span class="line">		s.pop();</span><br><span class="line">		<span class="keyword">if</span> (x1 - x2 &gt; <span class="number">0</span>)flag2 = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span> (flag1 != flag2) &#123;</span><br><span class="line">			flag1 = <span class="number">0</span>; </span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> flag1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">heapTravel</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> t = <span class="number">0</span>, b = k, i = <span class="number">1</span>;</span><br><span class="line">    <span class="comment">//s1保存数组下标的二进制序列，从而计算出路径</span></span><br><span class="line">	<span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s, s1;</span><br><span class="line">	<span class="keyword">while</span>(b != <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		s1.push(b % <span class="number">2</span>);</span><br><span class="line">		b = b / <span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (!s1.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		s.push(a[<span class="number">0</span>]);</span><br><span class="line">		s1.pop();</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d"</span>, a[<span class="number">0</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span> (!s1.empty())</span><br><span class="line">	&#123;</span><br><span class="line">        <span class="comment">//先输出空格，实现最后一个数字后无空格</span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">        <span class="comment">//若二进制位为0，则向左子树走，反之则向右子树走</span></span><br><span class="line">		<span class="keyword">if</span> (s1.top())i = <span class="number">2</span> * i + <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span> i *= <span class="number">2</span>;</span><br><span class="line">        <span class="comment">//完全二叉树中是从1开始编号，而数组中是从0开始编号，所以此处需要-1</span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d"</span>, a[i<span class="number">-1</span>]);</span><br><span class="line">		s.push(a[i<span class="number">-1</span>]);</span><br><span class="line">		s1.pop();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">	<span class="keyword">return</span> isHeap(s);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n, m = <span class="number">0</span>, x1, x2;</span><br><span class="line">	<span class="keyword">int</span> a[<span class="number">1010</span>];</span><br><span class="line">	<span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i]);</span><br><span class="line">    <span class="comment">//计算堆的层数，从而计算出叶子节点的序号；主要需要考虑叶子节点分布在两层的形态，此时根据满二叉树有2**h-1节点，计算第h层的叶子节点数和h-1层的叶子节点数</span></span><br><span class="line">	x1 = n - (<span class="built_in">pow</span>(<span class="number">2</span>, <span class="keyword">int</span>(log2(n)))) + <span class="number">1</span>;</span><br><span class="line">	x2 = <span class="built_in">pow</span>(<span class="number">2</span>, (log2(n - <span class="number">1</span>)) - <span class="number">1</span>) - x1 + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; x2; i++)<span class="comment">//h-1层的叶子节点</span></span><br><span class="line">	&#123;</span><br><span class="line">		m += heapTravel(a, n - x1 - i);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; x1; i++)<span class="comment">//h层的叶子节点</span></span><br><span class="line">	&#123;</span><br><span class="line">		m += heapTravel(a, n - i);</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="comment">//若m=叶子节点数，则为小根堆；若m=叶子节点数的负数，则为大根堆；否则不是堆</span></span><br><span class="line">	<span class="keyword">if</span> (m + n / <span class="number">2</span> == n)<span class="built_in">printf</span>(<span class="string">"Min Heap\n"</span>);</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (m + n - n / <span class="number">2</span> == <span class="number">0</span>)<span class="built_in">printf</span>(<span class="string">"Max Heap\n"</span>);</span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"Not Heap\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><font color=pink>xixixixixixi~</font><br><font color=pink>祝大家编程愉快，笔芯ღ( ´･ᴗ･` )</font></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
   
   
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/08/Advanced%20PAT/1021-Deepest-Root/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/08/Advanced%20PAT/1021-Deepest-Root/" class="post-title-link" itemprop="url">1021 Deepest Root</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-01-08 22:27:20 / Modified: 22:33:27" itemprop="dateCreated datePublished" datetime="2020-01-08T22:27:20+08:00">2020-01-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Advanced-PAT/" itemprop="url" rel="index">
-                    <span itemprop="name">Advanced PAT</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="笑一笑，十年少"><a href="#笑一笑，十年少" class="headerlink" title=" 笑一笑，十年少 "></a><font color=pink> 笑一笑，十年少 </font></h4><h4 id="xixixixi-xixixixi-xixixixi-xixixixi-xixixixi"><a href="#xixixixi-xixixixi-xixixixi-xixixixi-xixixixi" class="headerlink" title="xixixixi ~ xixixixi ~ xixixixi ~ xixixixi ~ xixixixi "></a><font color=pink>xixixixi ~ xixixixi ~ xixixixi ~ xixixixi ~ xixixixi </font></h4><h3 id="1021-Deepest-Root-25分"><a href="#1021-Deepest-Root-25分" class="headerlink" title="1021 Deepest Root (25分)"></a>1021 Deepest Root (25分)</h3><h5 id="Directions"><a href="#Directions" class="headerlink" title="Directions:"></a>Directions:</h5><p>A graph which is connected and acyclic can be considered a tree. The height of the tree depends on the selected root. Now you are supposed to find the root that results in a highest tree. Such a root is called the deepest root.</p>
-<h5 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h5><p>Each input file contains one test case. For each case, the first line contains a positive integer N (≤10<sup>4</sup>) which is the number of nodes, and hence the nodes are numbered from 1 to N. Then N−1 lines follow, each describes an edge by given the two adjacent nodes’ numbers.</p>
-<h5 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h5><p>For each test case, print each of the deepest roots in a line. If such a root is not unique, print them in increasing order of their numbers. In case that the given graph is not a tree, print Error: K components where K is the number of connected components in the graph.</p>
-<h5 id="Sample-Input1"><a href="#Sample-Input1" class="headerlink" title="Sample Input1:"></a>Sample Input1:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">1 2</span><br><span class="line">1 3</span><br><span class="line">1 4</span><br><span class="line">2 5</span><br></pre></td></tr></table></figure>
-<h5 id="Sample-Output1"><a href="#Sample-Output1" class="headerlink" title="Sample Output1:"></a>Sample Output1:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
-<h5 id="Sample-Input2"><a href="#Sample-Input2" class="headerlink" title="Sample Input2:"></a>Sample Input2:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">1 3</span><br><span class="line">1 4</span><br><span class="line">2 5</span><br><span class="line">3 4</span><br></pre></td></tr></table></figure>
-<h5 id="Sample-Output2"><a href="#Sample-Output2" class="headerlink" title="Sample Output2:"></a>Sample Output2:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: 2 components</span><br></pre></td></tr></table></figure>
-
-<h5 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h5><ol>
-<li>题目描述：输入二叉树的后序和中序遍历，输出二叉树的层次遍历</li>
-<li>思路分析：<ul>
-<li>通过后序和中序建立二叉树；</li>
-<li>通过队列对二叉树进行层次遍历。</li>
-</ul>
-</li>
-<li>Note:本题会有输出格式判定<ul>
-<li>遍历序列最后无空格。</li>
-</ul>
-</li>
-</ol>
-<h5 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> data;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">node</span>* <span class="title">lchild</span>;</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">node</span>* <span class="title">rchild</span>;</span></span><br><span class="line">&#125;BtNode;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function">BtNode* <span class="title">create</span><span class="params">(<span class="keyword">int</span>* post,<span class="keyword">int</span>* in,<span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (k&lt;=<span class="number">0</span>) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">	BtNode* p = (BtNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(node));</span><br><span class="line">	<span class="keyword">int</span> *i,n;</span><br><span class="line">	p-&gt;data = *(post + k - <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span> (i = in; i &lt; in + k; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (*i == p-&gt;data)<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	n = i - in;</span><br><span class="line">	p-&gt;lchild = create(post,in,n);</span><br><span class="line">	p-&gt;rchild = create(post+n,i+<span class="number">1</span>,k-n<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">levelOrderTraversal</span><span class="params">(BtNode* root)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">queue</span>&lt;BtNode*&gt; q;</span><br><span class="line">	BtNode p;</span><br><span class="line">	<span class="keyword">if</span> (root == <span class="literal">NULL</span>)<span class="keyword">return</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>, root-&gt;data);</span><br><span class="line">	<span class="keyword">if</span> (root-&gt;lchild)q.push(root-&gt;lchild);</span><br><span class="line">	<span class="keyword">if</span> (root-&gt;rchild)q.push(root-&gt;rchild);</span><br><span class="line">	<span class="keyword">while</span> (!q.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">		p = *q.front();</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d"</span>, p.data);</span><br><span class="line">		<span class="keyword">if</span> (p.lchild)q.push(p.lchild);</span><br><span class="line">		<span class="keyword">if</span> (p.rchild)q.push(p.rchild);</span><br><span class="line">		q.pop();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> post[<span class="number">1010</span>];</span><br><span class="line">	<span class="keyword">int</span> in[<span class="number">1010</span>];</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;post[i]);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;in[i]);</span><br><span class="line">	BtNode* root = create(post, in, n);</span><br><span class="line">	levelOrderTraversal(root);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><font color=pink>xixixixixixi~</font><br><font color=pink>祝大家编程愉快，笔芯ღ( ´･ᴗ･` )</font></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/01/Advanced%20PAT/1020-Tree-Traversals/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/01/Advanced%20PAT/1020-Tree-Traversals/" class="post-title-link" itemprop="url">1020 Tree Traversals</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-01-01 21:47:12" itemprop="dateCreated datePublished" datetime="2020-01-01T21:47:12+08:00">2020-01-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-08 22:23:43" itemprop="dateModified" datetime="2020-01-08T22:23:43+08:00">2020-01-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Advanced-PAT/" itemprop="url" rel="index">
-                    <span itemprop="name">Advanced PAT</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="笑一笑，十年少"><a href="#笑一笑，十年少" class="headerlink" title=" 笑一笑，十年少 "></a><font color=pink> 笑一笑，十年少 </font></h4><h4 id="xixixixi-xixixixi-xixixixi-xixixixi-xixixixi"><a href="#xixixixi-xixixixi-xixixixi-xixixixi-xixixixi" class="headerlink" title="xixixixi ~ xixixixi ~ xixixixi ~ xixixixi ~ xixixixi "></a><font color=pink>xixixixi ~ xixixixi ~ xixixixi ~ xixixixi ~ xixixixi </font></h4><h3 id="1019-1020-Tree-Traversals-25分"><a href="#1019-1020-Tree-Traversals-25分" class="headerlink" title="1019 1020 Tree Traversals (25分)"></a>1019 1020 Tree Traversals (25分)</h3><h5 id="Directions"><a href="#Directions" class="headerlink" title="Directions:"></a>Directions:</h5><p>Suppose that all the keys in a binary tree are distinct positive integers. Given the postorder and inorder traversal sequences, you are supposed to output the level order traversal sequence of the corresponding binary tree.</p>
-<h5 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h5><p>Each input file contains one test case. For each case, the first line gives a positive integer N (≤30), the total number of nodes in the binary tree. The second line gives the postorder sequence and the third line gives the inorder sequence. All the numbers in a line are separated by a space.</p>
-<h5 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h5><p>For each test case, print in one line the level order traversal sequence of the corresponding binary tree. All the numbers in a line must be separated by exactly one space, and there must be no extra space at the end of the line.</p>
-<h5 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">7</span><br><span class="line">2 3 1 5 7 6 4</span><br><span class="line">1 2 3 4 5 6 7</span><br></pre></td></tr></table></figure>
-<h5 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4 1 6 3 5 7 2</span><br></pre></td></tr></table></figure>
-
-<h5 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h5><ol>
-<li>题目描述：输入二叉树的后序和中序遍历，输出二叉树的层次遍历</li>
-<li>思路分析：<ul>
-<li>通过后序和中序建立二叉树；</li>
-<li>通过队列对二叉树进行层次遍历。</li>
-</ul>
-</li>
-<li>Note:本题会有输出格式判定<ul>
-<li>遍历序列最后无空格。</li>
-</ul>
-</li>
-</ol>
-<h5 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> data;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">node</span>* <span class="title">lchild</span>;</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">node</span>* <span class="title">rchild</span>;</span></span><br><span class="line">&#125;BtNode;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function">BtNode* <span class="title">create</span><span class="params">(<span class="keyword">int</span>* post,<span class="keyword">int</span>* in,<span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (k&lt;=<span class="number">0</span>) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">	BtNode* p = (BtNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(node));</span><br><span class="line">	<span class="keyword">int</span> *i,n;</span><br><span class="line">	p-&gt;data = *(post + k - <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span> (i = in; i &lt; in + k; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (*i == p-&gt;data)<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	n = i - in;</span><br><span class="line">	p-&gt;lchild = create(post,in,n);</span><br><span class="line">	p-&gt;rchild = create(post+n,i+<span class="number">1</span>,k-n<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">levelOrderTraversal</span><span class="params">(BtNode* root)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">queue</span>&lt;BtNode*&gt; q;</span><br><span class="line">	BtNode p;</span><br><span class="line">	<span class="keyword">if</span> (root == <span class="literal">NULL</span>)<span class="keyword">return</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>, root-&gt;data);</span><br><span class="line">	<span class="keyword">if</span> (root-&gt;lchild)q.push(root-&gt;lchild);</span><br><span class="line">	<span class="keyword">if</span> (root-&gt;rchild)q.push(root-&gt;rchild);</span><br><span class="line">	<span class="keyword">while</span> (!q.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">		p = *q.front();</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d"</span>, p.data);</span><br><span class="line">		<span class="keyword">if</span> (p.lchild)q.push(p.lchild);</span><br><span class="line">		<span class="keyword">if</span> (p.rchild)q.push(p.rchild);</span><br><span class="line">		q.pop();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> post[<span class="number">1010</span>];</span><br><span class="line">	<span class="keyword">int</span> in[<span class="number">1010</span>];</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;post[i]);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;in[i]);</span><br><span class="line">	BtNode* root = create(post, in, n);</span><br><span class="line">	levelOrderTraversal(root);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><font color=pink>xixixixixixi~</font><br><font color=pink>祝大家编程愉快，笔芯ღ( ´･ᴗ･` )</font></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/01/Advanced%20PAT/1019-General-Palindromic-Number/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/01/Advanced%20PAT/1019-General-Palindromic-Number/" class="post-title-link" itemprop="url">1019 General Palindromic Number</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-01-01 17:44:26 / Modified: 21:50:06" itemprop="dateCreated datePublished" datetime="2020-01-01T17:44:26+08:00">2020-01-01</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Advanced-PAT/" itemprop="url" rel="index">
-                    <span itemprop="name">Advanced PAT</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="笑一笑，十年少"><a href="#笑一笑，十年少" class="headerlink" title=" 笑一笑，十年少 "></a><font color=pink> 笑一笑，十年少 </font></h4><h4 id="xixixixi-xixixixi-xixixixi-xixixixi-xixixixi"><a href="#xixixixi-xixixixi-xixixixi-xixixixi-xixixixi" class="headerlink" title="xixixixi ~ xixixixi ~ xixixixi ~ xixixixi ~ xixixixi "></a><font color=pink>xixixixi ~ xixixixi ~ xixixixi ~ xixixixi ~ xixixixi </font></h4><h3 id="1019-General-Palindromic-Number-20分"><a href="#1019-General-Palindromic-Number-20分" class="headerlink" title="1019 General Palindromic Number (20分)"></a>1019 General Palindromic Number (20分)</h3><h5 id="Directions"><a href="#Directions" class="headerlink" title="Directions:"></a>Directions:</h5><p>A number that will be the same when it is written forwards or backwards is known as a Palindromic Number. For example, 1234321 is a palindromic number. All single digit numbers are palindromic numbers.</p>
-<p>Although palindromic numbers are most often considered in the decimal system, the concept of palindromicity can be applied to the natural numbers in any numeral system. Consider a number N&gt;0 in base b≥2, where it is written in standard notation with k+1 digits a<sub>i</sub> as $\sum_{i=0}^k$ (a<sub>i</sub> b<sup>i</sup>). Here, as usual, 0≤ a<sub>i</sub> &lt; b for all i and a<sub>k</sub> is non-zero. Then N is palindromic if and only if a<sub>i</sub> a<sub>k-i</sub> for all i. Zero is written 0 in any base and is also palindromic by definition.</p>
-<p>Given any positive decimal integer N and a base b, you are supposed to tell if N is a palindromic number in base b.</p>
-<h5 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h5><p>Each input file contains one test case. Each case consists of two positive numbers N and b, where 0&lt;N≤10<sup>9</sup> is the decimal number and 2≤b≤10<sup>9</sup> is the base. The numbers are separated by a space.</p>
-<h5 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h5><p>For each test case, first print in one line Yes if N is a palindromic number in base b, or No if not. Then in the next line, print N as the number in base b in the form “a<sub>k</sub>a<sub>k-1</sub>… a<sub>0</sub>“. Notice that there must be no extra space at the end of output.</p>
-<h5 id="Sample-Input1"><a href="#Sample-Input1" class="headerlink" title="Sample Input1:"></a>Sample Input1:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">27 2</span><br></pre></td></tr></table></figure>
-<h5 id="Sample-Output1"><a href="#Sample-Output1" class="headerlink" title="Sample Output1:"></a>Sample Output1:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Yes</span><br><span class="line">1 1 0 1 1</span><br></pre></td></tr></table></figure>
-<h5 id="Sample-Input2"><a href="#Sample-Input2" class="headerlink" title="Sample Input2:"></a>Sample Input2:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">121 5</span><br></pre></td></tr></table></figure>
-<h5 id="Sample-Output2"><a href="#Sample-Output2" class="headerlink" title="Sample Output2:"></a>Sample Output2:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">No</span><br><span class="line">4 4 1</span><br></pre></td></tr></table></figure>
-
-<h5 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h5><ol>
-<li>题目描述：将数据N转换为b进制，并且判断b进制表示是否为回文数（正序和逆序一样）。</li>
-<li>思路分析：<ul>
-<li>实现进制转换，并将结果存为int型数组</li>
-<li>判断数组是否左右对称：通过两个游标分别从0和n-1向中间靠近一次进行对比。</li>
-<li>设置一个bool型变量flag保存对比结果，若结果为true则为yes，否则为no;</li>
-</ul>
-</li>
-<li>Note:本题会有输出格式判定<ul>
-<li>Yes/No后无空格直接换行；</li>
-<li>进制转换最后一位后无空格。</li>
-</ul>
-</li>
-</ol>
-<h5 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">1010</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">transform</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">while</span> (n != <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		a[i] = n % b;</span><br><span class="line">		n /= b;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n, b;</span><br><span class="line">	<span class="keyword">bool</span> flag = <span class="literal">true</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;n, &amp;b);</span><br><span class="line">	transform(n,b);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>, k = i<span class="number">-1</span>; j &lt;= k; j++, k--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (a[j] == a[k])<span class="keyword">continue</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			flag = <span class="literal">false</span>;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (flag)<span class="built_in">printf</span>(<span class="string">"Yes\n"</span>);</span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"No\n"</span>);</span><br><span class="line">	<span class="keyword">while</span> (i--&amp;&amp;i!=<span class="number">0</span>)<span class="built_in">printf</span>(<span class="string">"%d "</span>, a[i]);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a[i]);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><font color=pink>xixixixixixi~</font><br><font color=pink>祝大家编程愉快，笔芯ღ( ´･ᴗ･` )</font></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/30/Advanced%20PAT/1013-Battle-Over-Cities/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/30/Advanced%20PAT/1013-Battle-Over-Cities/" class="post-title-link" itemprop="url">1013 Battle Over Cities</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-30 23:01:26" itemprop="dateCreated datePublished" datetime="2019-12-30T23:01:26+08:00">2019-12-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-01 22:12:09" itemprop="dateModified" datetime="2020-01-01T22:12:09+08:00">2020-01-01</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Advanced-PAT/" itemprop="url" rel="index">
-                    <span itemprop="name">Advanced PAT</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="笑一笑，十年少"><a href="#笑一笑，十年少" class="headerlink" title=" 笑一笑，十年少 "></a><font color=pink> 笑一笑，十年少 </font></h4><h4 id="xixixixi-xixixixi-xixixixi-xixixixi-xixixixi"><a href="#xixixixi-xixixixi-xixixixi-xixixixi-xixixixi" class="headerlink" title="xixixixi ~ xixixixi ~ xixixixi ~ xixixixi ~ xixixixi "></a><font color=pink>xixixixi ~ xixixixi ~ xixixixi ~ xixixixi ~ xixixixi </font></h4><h3 id="1013-Battle-Over-Cities-25分"><a href="#1013-Battle-Over-Cities-25分" class="headerlink" title="1013 Battle Over Cities (25分)"></a>1013 Battle Over Cities (25分)</h3><h5 id="Directions"><a href="#Directions" class="headerlink" title="Directions:"></a>Directions:</h5><p>It is vitally important to have all the cities connected by highways in a war. If a city is occupied by the enemy, all the highways from/toward that city are closed. We must know immediately if we need to repair any other highways to keep the rest of the cities connected. Given the map of cities which have all the remaining highways marked, you are supposed to tell the number of highways need to be repaired, quickly.</p>
-<p>For example, if we have 3 cities and 2 highways connecting city1-city2 and city1-city3. Then if city1 is occupied by the enemy, we must have 1 highway repaired, that is the highway city city2-city3 .</p>
-<h5 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h5><p>Each input file contains one test case. Each case starts with a line containing 3 numbers N (&lt;1000), M and K, which are the total number of cities, the number of remaining highways, and the number of cities to be checked, respectively. Then M lines follow, each describes a highway by 2 integers, which are the numbers of the cities the highway connects. The cities are numbered from 1 to N. Finally there is a line containing K numbers, which represent the cities we concern.</p>
-<h5 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h5><p>For each of the K cities, output in a line the number of highways need to be repaired if that city is lost.</p>
-<h5 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h5><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">3 </span><span class="number">2</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">2</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">3</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">2</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h5><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="正常思路——通过图的深度优先遍历，统计图的连通分量"><a href="#正常思路——通过图的深度优先遍历，统计图的连通分量" class="headerlink" title="正常思路——通过图的深度优先遍历，统计图的连通分量"></a>正常思路——通过图的深度优先遍历，统计图的连通分量</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">bool</span> visits[<span class="number">1010</span>];</span><br><span class="line"><span class="keyword">int</span> <span class="built_in">map</span>[<span class="number">1010</span>][<span class="number">1010</span>];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> node)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	visits[node] = <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		<span class="keyword">if</span> (visits[i] == <span class="literal">false</span>&amp;&amp;<span class="built_in">map</span>[node][i]==<span class="number">1</span>)</span><br><span class="line">			dfs(i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> m, k, a, b, x;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;n, &amp;m, &amp;k);</span><br><span class="line">	<span class="keyword">while</span> (m--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;a, &amp;b);</span><br><span class="line">		<span class="built_in">map</span>[a][b] = <span class="built_in">map</span>[b][a] = <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span> (k--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> num = <span class="number">-1</span>;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x);</span><br><span class="line">		<span class="built_in">fill</span>(visits, visits + <span class="number">1010</span>, <span class="literal">false</span>);</span><br><span class="line">		visits[x] = <span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (visits[i] == <span class="literal">false</span>)</span><br><span class="line">			&#123; </span><br><span class="line">				dfs(i);</span><br><span class="line">				num++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, num);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="野路子"><a href="#野路子" class="headerlink" title="野路子"></a>野路子</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> <span class="built_in">map</span>[<span class="number">1010</span>][<span class="number">1010</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n, m, k;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;n, &amp;m, &amp;k);</span><br><span class="line">	<span class="keyword">while</span> (m--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> c1,c2;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;c1, &amp;c2);</span><br><span class="line">		<span class="built_in">map</span>[c1][c2] = <span class="number">1</span>;</span><br><span class="line">		<span class="built_in">map</span>[c2][c1] = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">	<span class="keyword">while</span> (k--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> x;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x);</span><br><span class="line">		<span class="keyword">int</span> p = <span class="number">0</span>, num = <span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">while</span> (p &lt; n )</span><br><span class="line">		&#123;</span><br><span class="line">			p++;</span><br><span class="line">			<span class="keyword">if</span> (p == x)<span class="keyword">continue</span>;</span><br><span class="line">			<span class="keyword">int</span> j = p;</span><br><span class="line">			<span class="keyword">for</span> (j; j &lt;= n; j++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span> (j == x)<span class="keyword">continue</span>;</span><br><span class="line">				<span class="keyword">if</span> (<span class="built_in">map</span>[p][j] == <span class="number">1</span>)<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (j == n+<span class="number">1</span>)num++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, num);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><font color=pink>xixixixixixi~</font><br><font color=pink>祝大家编程愉快，笔芯ღ( ´･ᴗ･` )</font></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/27/My-New-Post/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/27/My-New-Post/" class="post-title-link" itemprop="url">My New Post</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-27 15:40:25" itemprop="dateCreated datePublished" datetime="2019-12-27T15:40:25+08:00">2019-12-27</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/27/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/27/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-27 15:11:02" itemprop="dateCreated datePublished" datetime="2019-12-27T15:11:02+08:00">2019-12-27</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/07/DataBase/simple-sql1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -804,8 +214,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/10/07/DataBase/simple-sql1/" class="post-title-link" itemprop="url">简单sql练习50句之一</a>
+          简单sql练习50句之一
         </h1>
 
         <div class="post-meta">
@@ -847,7 +256,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="笑一笑，十年少"><a href="#笑一笑，十年少" class="headerlink" title=" 笑一笑，十年少 "></a><font color=pink> 笑一笑，十年少 </font></h4><h4 id="xixixixixixixixixixixixixixixixixixixixi"><a href="#xixixixixixixixixixixixixixixixixixixixi" class="headerlink" title="xixixixixixixixixixixixixixixixixixixixi "></a><font color=pink>xixixixi<del>xixixixi</del>xixixixi<del>xixixixi</del>xixixixi </font></h4><p>闲来无事刷了点sql<br>简简单单的50句查询语句，修身养性<del>不错不错<br>自己写的时候发现网上很多都是sqlite、oracle的<br>所以，就记录一下下mysql咯，方便以后自己用<br>如果能为其他sql道友带来帮助那就再好不过啦<br>同时如果哪里有不对的或者写的不好的地方欢迎指正，Olily在此谢过啦<br>在此声明</del>50句并非原创，问题是凑的emmmm但是代码是撸的<br>道友可直接百度“sql练习”，便可以搜到更多啦</p>
+        <h4 id="笑一笑，十年少"><a href="#笑一笑，十年少" class="headerlink" title=" 笑一笑，十年少 "></a><font color=pink> 笑一笑，十年少 </font></h4><h4 id="xixixixixixixixixixixixixixixixixixixixi"><a href="#xixixixixixixixixixixixixixixixixixixixi" class="headerlink" title="xixixixixixixixixixixixixixixixixixixixi "></a><font color=pink>xixixixi<del>xixixixi</del>xixixixi<del>xixixixi</del>xixixixi </font></h4><p>闲来无事刷了点sql<br>简简单单的50句查询语句，修身养性<del>不错不错<br>自己写的时候发现网上很多都是sqlite、oracle的<br>所以，就记录一下下mysql咯，方便以后自己用<br>如果能为其他sql道友带来帮助那就再好不过啦<br>同时如果哪里有不对的或者写的不好的地方欢迎指正，Olily在此谢过啦<br>在此声明</del>50句并非原创，问题是凑的emmmm但是代码是撸的<br>道友可直接百度“sql练习”，便可以搜到更多啦</p>
 <hr>
 <h4 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a><font color=pink>创建表</font></h4><hr>
 <h6 id="Table-structure-for-student"><a href="#Table-structure-for-student" class="headerlink" title="Table structure for student"></a>Table structure for student</h6><hr>
@@ -926,24 +335,37 @@
 <hr>
 <p><font color=pink>xixixixixixi~</font><br><font color=pink>望各位道友能原谅这突兀的粉色，满足我的少女心</font><br><font color=pink>笔芯ღ( ´･ᴗ･` )</font></p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+          <div class="post-tags">
+              <a href="/tags/mysql/" rel="tag"># mysql</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># 数据库</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2019/12/27/hello-world/" rel="next" title="Hello World">
+      Hello World <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
+    
   </article>
   
   
   
 
   </div>
-
-  
-
 
 
           </div>
@@ -994,6 +416,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#笑一笑，十年少"><span class="nav-number">1.</span> <span class="nav-text"> 笑一笑，十年少 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#xixixixixixixixixixixixixixixixixixixixi"><span class="nav-number">2.</span> <span class="nav-text">xixixixixixixixixixixixixixixixixixixixi </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建表"><span class="nav-number">3.</span> <span class="nav-text">创建表</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Table-structure-for-student"><span class="nav-number">3.0.1.</span> <span class="nav-text">Table structure for student</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Table-structure-for-teacher"><span class="nav-number">3.0.2.</span> <span class="nav-text">Table structure for teacher</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Table-structure-for-course"><span class="nav-number">3.0.3.</span> <span class="nav-text">Table structure for course</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Table-structure-for-sc"><span class="nav-number">3.0.4.</span> <span class="nav-text">Table structure for sc</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#向表中插入数据"><span class="nav-number">3.1.</span> <span class="nav-text">向表中插入数据</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Records-of-student"><span class="nav-number">3.1.1.</span> <span class="nav-text">Records of student</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Records-of-teacher"><span class="nav-number">3.1.2.</span> <span class="nav-text">Records of teacher</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Records-of-course"><span class="nav-number">3.1.3.</span> <span class="nav-text">Records of course</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Records-of-sc"><span class="nav-number">3.1.4.</span> <span class="nav-text">Records of sc</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询语句"><span class="nav-number">4.</span> <span class="nav-text">查询语句</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-查询学生表的前10条数据"><span class="nav-number">4.0.1.</span> <span class="nav-text">1.查询学生表的前10条数据;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-查询成绩表中的最低分-平均分-总分"><span class="nav-number">4.0.2.</span> <span class="nav-text">2.查询成绩表中的最低分,平均分,总分;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-查询老师-“谌燕”-所带的课程设数量"><span class="nav-number">4.0.3.</span> <span class="nav-text">3.查询老师 “谌燕” 所带的课程设数量;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-查询所有老师所带的课程数量"><span class="nav-number">4.0.4.</span> <span class="nav-text">4.查询所有老师所带的课程数量;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-查询姓张同学的信息"><span class="nav-number">4.0.5.</span> <span class="nav-text">5.查询姓张同学的信息;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#6-查询课程名称为”数据库”-且分数低于60-的学生姓名和分数"><span class="nav-number">4.0.6.</span> <span class="nav-text">6.查询课程名称为”数据库”,且分数低于60 的学生姓名和分数;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#7-查询所有学生的选课情况"><span class="nav-number">4.0.7.</span> <span class="nav-text">7.查询所有学生的选课情况;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#8-查询任何一门课程成绩在70-分以上的姓名-课程名称和分数"><span class="nav-number">4.0.8.</span> <span class="nav-text">8.查询任何一门课程成绩在70 分以上的姓名.课程名称和分数;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#9-查询不及格的课程-并按课程号从大到小排列"><span class="nav-number">4.0.9.</span> <span class="nav-text">9.查询不及格的课程,并按课程号从大到小排列;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#10-查询没学过”谌燕”老师讲授的任一门课程的学生姓名"><span class="nav-number">4.0.10.</span> <span class="nav-text">10.查询没学过”谌燕”老师讲授的任一门课程的学生姓名;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#11-查询两门以上不及格课程的同学的学号及其平均成绩"><span class="nav-number">4.0.11.</span> <span class="nav-text">11.查询两门以上不及格课程的同学的学号及其平均成绩;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#12-课程号为c004-成绩小于90分的学生学号-通过成绩降序排列"><span class="nav-number">4.0.12.</span> <span class="nav-text">12.课程号为c004,成绩小于90分的学生学号,通过成绩降序排列;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#13-删除”s002”同学的”c001”课程的成绩"><span class="nav-number">4.0.13.</span> <span class="nav-text">13.删除”s002”同学的”c001”课程的成绩;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#14、把“SC”表中“谌燕”老师教的课的成绩都更改为此课程的平均成绩"><span class="nav-number">4.0.14.</span> <span class="nav-text">14、把“SC”表中“谌燕”老师教的课的成绩都更改为此课程的平均成绩;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#15-查询平均成绩大于60-分的同学的学号和平均成绩"><span class="nav-number">4.0.15.</span> <span class="nav-text">15.查询平均成绩大于60 分的同学的学号和平均成绩;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#16-删除学习“谌燕”老师课的SC-表记录"><span class="nav-number">4.0.16.</span> <span class="nav-text">16.删除学习“谌燕”老师课的SC 表记录;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#17-查询姓”刘”的老师的个数"><span class="nav-number">4.0.17.</span> <span class="nav-text">17.查询姓”刘”的老师的个数;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#18-查询不同老师所教不同课程平均分从高到低显示"><span class="nav-number">4.0.18.</span> <span class="nav-text">18.查询不同老师所教不同课程平均分从高到低显示;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#19-统计各科成绩-各分数段人数-课程ID-课程名称-100-85-85-70-70-60-lt-60"><span class="nav-number">4.0.19.</span> <span class="nav-text">19.统计各科成绩,各分数段人数:课程ID,课程名称,[100-85],[85-70],[70-60],[ &lt;60];</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#20-查询学过”谌燕”老师所教的所有课的同学的学号-姓名"><span class="nav-number">4.0.20.</span> <span class="nav-text">20.查询学过”谌燕”老师所教的所有课的同学的学号:姓名;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#21-查询课程编号”c002”的成绩比课程编号”c001”课程低的所有同学的学号-姓名"><span class="nav-number">4.0.21.</span> <span class="nav-text">21.查询课程编号”c002”的成绩比课程编号”c001”课程低的所有同学的学号.姓名;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#22-查询所有课程成绩小于60-分的同学的学号-姓名"><span class="nav-number">4.0.22.</span> <span class="nav-text">22.查询所有课程成绩小于60 分的同学的学号.姓名;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#23-查询没有学全所有课的同学的学号-姓名"><span class="nav-number">4.0.23.</span> <span class="nav-text">23.查询没有学全所有课的同学的学号.姓名;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#24-查询至少有一门课与学号为”s001”的同学所学相同的同学的学号和姓名"><span class="nav-number">4.0.24.</span> <span class="nav-text">24.查询至少有一门课与学号为”s001”的同学所学相同的同学的学号和姓名;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#25-查询至少学过学号为”s001”同学所有课的其他同学学号和姓名"><span class="nav-number">4.0.25.</span> <span class="nav-text">25.查询至少学过学号为”s001”同学所有课的其他同学学号和姓名;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#26-查询各科成绩前三名的记录-不考虑成绩并列情况"><span class="nav-number">4.0.26.</span> <span class="nav-text">26.查询各科成绩前三名的记录:(不考虑成绩并列情况);</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#27-查询和”s001”号的同学学习的课程完全相同的其他同学学号和姓名"><span class="nav-number">4.0.27.</span> <span class="nav-text">27.查询和”s001”号的同学学习的课程完全相同的其他同学学号和姓名;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#28-查询男生、女生人数"><span class="nav-number">4.0.28.</span> <span class="nav-text">28.查询男生、女生人数;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#29-向SC表中插入一些记录-这些记录要求符合以下条件-没有上过编号”c002”课程的同学学号-”c002”号课的平均成绩"><span class="nav-number">4.0.29.</span> <span class="nav-text">29.向SC表中插入一些记录,这些记录要求符合以下条件:没有上过编号”c002”课程的同学学号.”c002”号课的平均成绩;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#30-查询所有学生的选课情况"><span class="nav-number">4.0.30.</span> <span class="nav-text">30.查询所有学生的选课情况;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#31-按各科平均成绩从低到高和及格率的百分数从高到低顺序"><span class="nav-number">4.0.31.</span> <span class="nav-text">31.按各科平均成绩从低到高和及格率的百分数从高到低顺序;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#32-查询课程编号为c001-且课程成绩在80-分以上的学生的学号和姓名"><span class="nav-number">4.0.32.</span> <span class="nav-text">32.查询课程编号为c001 且课程成绩在80 分以上的学生的学号和姓名;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#33-求选了课程的学生人数"><span class="nav-number">4.0.33.</span> <span class="nav-text">33.求选了课程的学生人数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#34-查询各个课程及相应的选修人数"><span class="nav-number">4.0.34.</span> <span class="nav-text">34.查询各个课程及相应的选修人数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#35-查询每门课程被选修的学生数"><span class="nav-number">4.0.35.</span> <span class="nav-text">35.查询每门课程被选修的学生数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#36-查询每门功课成绩最好的前两名"><span class="nav-number">4.0.36.</span> <span class="nav-text">36.查询每门功课成绩最好的前两名</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#37-统计每门课程的学生选修人数（超过10-人的课程才统计）。要求输出课程号和选修人数，查询结果按人数降序排列，若人数相同，按课程号升序排列"><span class="nav-number">4.0.37.</span> <span class="nav-text">37.统计每门课程的学生选修人数（超过10 人的课程才统计）。要求输出课程号和选修人数，查询结果按人数降序排列，若人数相同，按课程号升序排列</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#39-1996年出生的学生名单-注-Student-表中Sage列的类型是number"><span class="nav-number">4.0.38.</span> <span class="nav-text">39.1996年出生的学生名单(注:Student 表中Sage列的类型是number)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#40-查询同名同姓学生名单，并统计同名人数"><span class="nav-number">4.0.39.</span> <span class="nav-text">40.查询同名同姓学生名单，并统计同名人数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#41-查询平均成绩大于85-的所有学生的学号-姓名和平均成绩"><span class="nav-number">4.0.40.</span> <span class="nav-text">41.查询平均成绩大于85 的所有学生的学号.姓名和平均成绩</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#42-查询没学过“谌燕”老师讲授的任一门课程的学生姓名"><span class="nav-number">4.0.41.</span> <span class="nav-text">42.查询没学过“谌燕”老师讲授的任一门课程的学生姓名</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#43-查询两门及以上不及格课程的同学的学号及其平均成绩"><span class="nav-number">4.0.42.</span> <span class="nav-text">43.查询两门及以上不及格课程的同学的学号及其平均成绩</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#44-查询选修”谌燕”老师所授课程的学生中-成绩最高的学生姓名及其成绩"><span class="nav-number">4.0.43.</span> <span class="nav-text">44.查询选修”谌燕”老师所授课程的学生中,成绩最高的学生姓名及其成绩</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#45-检索“c004”课程分数小于60，按分数降序排列的同学学号"><span class="nav-number">4.0.44.</span> <span class="nav-text">45.检索“c004”课程分数小于60，按分数降序排列的同学学号</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#46-查询不同课程成绩相同的学生的学号-课程号-学生成绩"><span class="nav-number">4.0.45.</span> <span class="nav-text">46.查询不同课程成绩相同的学生的学号.课程号.学生成绩</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#47-查询全部学生都选修的课程的课程号和课程名"><span class="nav-number">4.0.46.</span> <span class="nav-text">47.查询全部学生都选修的课程的课程号和课程名</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#48-查询各科成绩最高和最低的分：以如下形式显示：课程ID，最高分，最低分"><span class="nav-number">4.0.47.</span> <span class="nav-text">48.查询各科成绩最高和最低的分：以如下形式显示：课程ID，最高分，最低分</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#49-检索至少选修两门课程的学生学号"><span class="nav-number">4.0.48.</span> <span class="nav-text">49.检索至少选修两门课程的学生学号</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#50-删除“s002”同学的“c001”课程的成绩"><span class="nav-number">4.0.49.</span> <span class="nav-text">50.删除“s002”同学的“c001”课程的成绩</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
