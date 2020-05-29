@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://yoursite.com').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="笑一笑，十年少 xixixixi ~ xixixixi ~ xixixixi ~ xixixixi ~ xixixixi Directions:Recommendation system predicts the preference that a user would give to an item. Now you are asked to program a very simple rec">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1129 Recommendation System (25分)">
+<meta property="og:url" content="http://yoursite.com/2020/02/14/Advanced%20PAT/1129-Recommendation-System/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="笑一笑，十年少 xixixixi ~ xixixixi ~ xixixixi ~ xixixixi ~ xixixixi Directions:Recommendation system predicts the preference that a user would give to an item. Now you are asked to program a very simple rec">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-14T07:53:25.000Z">
+<meta property="article:modified_time" content="2020-02-15T15:46:25.141Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="排序">
+<meta property="article:tag" content="难题">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/02/14/Advanced%20PAT/1129-Recommendation-System/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>1129 Recommendation System (25分) | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/14/Advanced%20PAT/1129-Recommendation-System/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          1129 Recommendation System (25分)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-14 15:53:25" itemprop="dateCreated datePublished" datetime="2020-02-14T15:53:25+08:00">2020-02-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-15 23:46:25" itemprop="dateModified" datetime="2020-02-15T23:46:25+08:00">2020-02-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Advanced-PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">Advanced PAT</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="笑一笑，十年少"><a href="#笑一笑，十年少" class="headerlink" title=" 笑一笑，十年少 "></a><font color=pink> 笑一笑，十年少 </font></h4><h4 id="xixixixi-xixixixi-xixixixi-xixixixi-xixixixi"><a href="#xixixixi-xixixixi-xixixixi-xixixixi-xixixixi" class="headerlink" title="xixixixi ~ xixixixi ~ xixixixi ~ xixixixi ~ xixixixi "></a><font color=pink>xixixixi ~ xixixixi ~ xixixixi ~ xixixixi ~ xixixixi </font></h4><h5 id="Directions"><a href="#Directions" class="headerlink" title="Directions:"></a>Directions:</h5><p>Recommendation system predicts the preference that a user would give to an item. Now you are asked to program a very simple recommendation system that rates the user’s preference by the number of times that an item has been accessed by this user.</p>
+<h5 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h5><p>Each input file contains one test case. For each test case, the first line contains two positive integers: N (≤ 50,000), the total number of queries, and K (≤ 10), the maximum number of recommendations the system must show to the user. Then given in the second line are the indices of items that the user is accessing – for the sake of simplicity, all the items are indexed from 1 to N. All the numbers in a line are separated by a space.</p>
+<h5 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h5><p>For each case, process the queries one by one. Output the recommendations for each query in a line in the format:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">query</span>: <span class="selector-tag">rec</span><span class="selector-attr">[1]</span> <span class="selector-tag">rec</span><span class="selector-attr">[2]</span> ... <span class="selector-tag">rec</span><span class="selector-attr">[K]</span></span><br></pre></td></tr></table></figure>
+
+<p>where query is the item that the user is accessing, and rec[i] (i=1, … K) is the i-th item that the system recommends to the user. The first K items that have been accessed most frequently are supposed to be recommended in non-increasing order of their frequencies. If there is a tie, the items will be ordered by their indices in increasing order.</p>
+<p>Note: there is no output for the first item since it is impossible to give any recommendation at the time. It is guaranteed to have the output for at least one query.</p>
+<h5 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">12 3</span><br><span class="line">3 5 7 5 5 3 2 1 8 3 8 12</span><br></pre></td></tr></table></figure>
+<h5 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">5: 3</span><br><span class="line">7: 3 5</span><br><span class="line">5: 3 5 7</span><br><span class="line">5: 5 3 7</span><br><span class="line">3: 5 3 7</span><br><span class="line">2: 5 3 7</span><br><span class="line">1: 5 3 2</span><br><span class="line">8: 5 3 1</span><br><span class="line">3: 5 3 1</span><br><span class="line">8: 3 5 1</span><br><span class="line">12: 3 5 8</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h5><ol>
+<li>一个简单的推荐系统：输入n个数，表示用户每次点击的商品编号，要求推荐给用户在点击第i个商品前的k个商品编号。用户第一次点击商品前不需要推荐。其中推荐算法为：根据前i-1次各商品出现的次数按照由大到小推荐，当次出现次数相同时，按照商品编号升序排列。</li>
+<li>思路：<ul>
+<li>参照柳神的思路：其实本题要实现功能是非常简单的，但是！！！轻易调用sort函数真的太容易超时额，本题倒数两个测试点就会超时。我一开始使用的是map来保存商品编号和商品出现的次数，不管怎么改都过不了，我太难了。所以，本题思路源自柳神（ <a href="https://www.liuchuo.net/" target="_blank" rel="noopener">https://www.liuchuo.net/</a> ）膜拜n+1次<ul>
+<li>采用set结构s保存node(商品编号和出现次数)，然后重定义操作符”&lt;”将set按照商品出现的次数排序（这是我这种小菜鸟万万想不到的骚操作~）。每次在用户先输出推荐，然后再将用户点击数据更新到s,由于set本身就是一种不能更改值的数据结构，所以每次用户有新的点击商品a之前，需要先将s中原本的商品a的信息删除，更新其次数后再重新插入。</li>
+<li>将商品出现的次数保存在book数组（这也是一个很绝妙的处理方式，不需要再去讨论商品是否曾经出现过之类的问题），每次商品a出现一次直接将book[a]++在插入到数组中即可；</li>
+<li>对大佬佩服得五体投地~</li>
+</ul>
+</li>
+<li>和大佬讨论后的思路（主要是大佬啦）：用sort超时的原因在于当数据量达到50000时，算法的是间复杂度到达了n**2 * log<sub>2</sub>n，所以如果想要降低时间复杂度要么从sort上考虑，要么从n上考虑。<ul>
+<li>本题主要是要选前k个商品推荐，则每次进行排序的其实就只有前一次点击的商品以及前一次排好序的k个商品，只要处理好这两者之间的关系就可以实现每次只对k个数据进行排序，而时间复杂度也会降低到n<em>k</em>log<sub>2</sub>k,k&lt;=10可以看成一个常数，那么复杂度就约等于降到了n;</li>
+<li>实现起来也不难，首先将（用来保存前k个商品信息的vector）arr初始化使得每一个商品的信息的次数都为-1，可以确定的是arr一定是降序排列，每次需要更新商品信息时，如果商品编号在arr中则直接将次数++，否则和arr[k-1]个商品信息作比较，若次数更多或次数相同且编号更小则更新arr[k-1],并且book[a]和book[k-1]也需要更新。</li>
+<li>每次在推荐前对arr进行排序。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Note：<ul>
+<li>感谢柳神~</li>
+<li>感谢大佬~</li>
+</ul>
+</li>
+</ol>
+<h5 id="实现-操作符重载"><a href="#实现-操作符重载" class="headerlink" title="实现-操作符重载"></a>实现-操作符重载</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> book[<span class="number">50010</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> value, cnt;</span><br><span class="line">	<span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> node&amp; a) <span class="keyword">const</span>&#123; </span><br><span class="line">		<span class="keyword">return</span> (cnt != a.cnt) ? cnt &gt; a.cnt : value &lt; a.value;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n, k, start;</span><br><span class="line">	<span class="built_in">set</span>&lt;node&gt;s;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;n, &amp;k, &amp;start);</span><br><span class="line">	s.insert(node&#123; start,++book[start]&#125;);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> a, j = <span class="number">0</span>;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d:"</span>, a);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">auto</span> it = s.<span class="built_in">begin</span>(); it != s.<span class="built_in">end</span>() &amp;&amp; j &lt; k; it++, j++) <span class="built_in">printf</span>(<span class="string">" %d"</span>, it-&gt;value);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">		<span class="keyword">auto</span> it = s.<span class="built_in">find</span>(node&#123; a,book[a] &#125;);</span><br><span class="line">		<span class="keyword">if</span> (it != s.<span class="built_in">end</span>())s.erase(it);</span><br><span class="line">		s.insert(node&#123; a,++book[a] &#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="实现-部分排序"><a href="#实现-部分排序" class="headerlink" title="实现-部分排序"></a>实现-部分排序</h5><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;PAIR;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(PAIR a, PAIR b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (a.second == b.second)<span class="keyword">return</span> a.first &lt; b.first;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> a.second &gt; b.second;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;m;<span class="comment">//保存所有商品的编号、出现的次数</span></span><br><span class="line">    <span class="keyword">bool</span> book[<span class="number">50050</span>] = &#123; <span class="literal">false</span> &#125;;<span class="comment">//标记前k个商品有哪些，为true则代表该商品次数出现在前k个</span></span><br><span class="line">    <span class="keyword">int</span> n, k, start;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; start;<span class="comment">//第一个商品，不需要推荐</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;PAIR&gt;arr(k);<span class="comment">//保存前k个商品</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; it : arr) &#123;<span class="comment">//初始化，主要目的是让所有商品次数为-1，商品编号无所谓</span></span><br><span class="line">        it.first = <span class="number">0</span>;</span><br><span class="line">        it.second = <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    m[start] = <span class="number">1</span>;<span class="comment">//保存start商品出现的次数</span></span><br><span class="line">    arr[<span class="number">0</span>].first = start;<span class="comment">//将第一个点击的商品编号作为arr中第一个（毋庸置疑）</span></span><br><span class="line">    arr[<span class="number">0</span>].second = <span class="number">1</span>;</span><br><span class="line">    book[start] = <span class="number">1</span>;<span class="comment">//标记start商品在arr中出现过了</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> a;<span class="comment">//当前欲点击的商品编号</span></span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a;</span><br><span class="line">        sort(arr.<span class="built_in">begin</span>(), arr.<span class="built_in">end</span>(), cmp);<span class="comment">//对arr（前k个商品）进行排序</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; a &lt;&lt; <span class="string">":"</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> it : arr) &#123;</span><br><span class="line">            <span class="keyword">if</span> (it.second == <span class="number">-1</span>)<span class="keyword">break</span>;<span class="comment">//如果次数==-1,则代表前面还未出现k个商品</span></span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">" "</span> &lt;&lt; it.first;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"\n"</span>;</span><br><span class="line">        <span class="keyword">if</span> (m[a] &lt; <span class="number">0</span>)m[a] = <span class="number">1</span>;<span class="comment">//商品从未点击过</span></span><br><span class="line">        <span class="keyword">else</span> m[a]++;</span><br><span class="line">        <span class="keyword">if</span> (book[a]) &#123;<span class="comment">//商品原本就排在前k个，即arr中已有a商品信息</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; it : arr)</span><br><span class="line">                <span class="keyword">if</span> (it.first == a) &#123;</span><br><span class="line">                    it.second++;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (m[a] &gt; arr[k - <span class="number">1</span>].second || m[a] == arr[k - <span class="number">1</span>].second &amp;&amp; a &lt; arr[k - <span class="number">1</span>].first) &#123;</span><br><span class="line">            <span class="comment">//出现次数比arr中最后一个商品次数大，或次数相同且编号更小</span></span><br><span class="line">            <span class="comment">//更新arr最后一个商品信息，同时更新book</span></span><br><span class="line">            book[arr[k - <span class="number">1</span>].first] = <span class="number">0</span>;</span><br><span class="line">            arr[k - <span class="number">1</span>].first = a;</span><br><span class="line">            arr[k - <span class="number">1</span>].second = m[a];</span><br><span class="line">            book[a] = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><font color=pink>xixixixixixi~</font><br><font color=pink>祝大家编程愉快，笔芯ღ( ´･ᴗ･` )</font></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag"># 排序</a>
+              <a href="/tags/%E9%9A%BE%E9%A2%98/" rel="tag"># 难题</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/14/Advanced%20PAT/1128-N-Queens-Puzzle/" rel="prev" title="1128 N Queens Puzzle (20分)">
+      <i class="fa fa-chevron-left"></i> 1128 N Queens Puzzle (20分)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/15/Advanced%20PAT/1130-Infix-Expression/" rel="next" title="1130 Infix Expression (25分)">
+      1130 Infix Expression (25分) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#笑一笑，十年少"><span class="nav-number">1.</span> <span class="nav-text"> 笑一笑，十年少 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#xixixixi-xixixixi-xixixixi-xixixixi-xixixixi"><span class="nav-number">2.</span> <span class="nav-text">xixixixi ~ xixixixi ~ xixixixi ~ xixixixi ~ xixixixi </span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Directions"><span class="nav-number">2.1.</span> <span class="nav-text">Directions:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Input-Specification"><span class="nav-number">2.2.</span> <span class="nav-text">Input Specification:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Output-Specification"><span class="nav-number">2.3.</span> <span class="nav-text">Output Specification:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sample-Input"><span class="nav-number">2.4.</span> <span class="nav-text">Sample Input:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sample-Output"><span class="nav-number">2.5.</span> <span class="nav-text">Sample Output:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分析："><span class="nav-number">2.6.</span> <span class="nav-text">分析：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实现-操作符重载"><span class="nav-number">2.7.</span> <span class="nav-text">实现-操作符重载</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实现-部分排序"><span class="nav-number">2.8.</span> <span class="nav-text">实现-部分排序</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.6.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='228, 106, 163' opacity='0.5' zIndex='-1' count='99' src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@latest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

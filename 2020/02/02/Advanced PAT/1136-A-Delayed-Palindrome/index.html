@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://yoursite.com').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="笑一笑，十年少 xixixixi ~ xixixixi ~ xixixixi ~ xixixixi ~ xixixixi Directions:Consider a positive integer N written in standard notation with k+1 digits ai as ak ⋯a1 a0 with 0≤ai&lt;10 for all i and ak&gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1136 A Delayed Palindrome (20分)">
+<meta property="og:url" content="http://yoursite.com/2020/02/02/Advanced%20PAT/1136-A-Delayed-Palindrome/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="笑一笑，十年少 xixixixi ~ xixixixi ~ xixixixi ~ xixixixi ~ xixixixi Directions:Consider a positive integer N written in standard notation with k+1 digits ai as ak ⋯a1 a0 with 0≤ai&lt;10 for all i and ak&gt;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-02T06:05:44.000Z">
+<meta property="article:modified_time" content="2020-02-04T08:17:24.279Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="回文数">
+<meta property="article:tag" content="字符串">
+<meta property="article:tag" content="大数">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/02/02/Advanced%20PAT/1136-A-Delayed-Palindrome/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>1136 A Delayed Palindrome (20分) | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/02/Advanced%20PAT/1136-A-Delayed-Palindrome/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          1136 A Delayed Palindrome (20分)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-02 14:05:44" itemprop="dateCreated datePublished" datetime="2020-02-02T14:05:44+08:00">2020-02-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-04 16:17:24" itemprop="dateModified" datetime="2020-02-04T16:17:24+08:00">2020-02-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Advanced-PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">Advanced PAT</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="笑一笑，十年少"><a href="#笑一笑，十年少" class="headerlink" title=" 笑一笑，十年少 "></a><font color=pink> 笑一笑，十年少 </font></h4><h4 id="xixixixi-xixixixi-xixixixi-xixixixi-xixixixi"><a href="#xixixixi-xixixixi-xixixixi-xixixixi-xixixixi" class="headerlink" title="xixixixi ~ xixixixi ~ xixixixi ~ xixixixi ~ xixixixi "></a><font color=pink>xixixixi ~ xixixixi ~ xixixixi ~ xixixixi ~ xixixixi </font></h4><h5 id="Directions"><a href="#Directions" class="headerlink" title="Directions:"></a>Directions:</h5><p>Consider a positive integer N written in standard notation with k+1 digits a<sub>i</sub> as a<sub>k</sub> ⋯a<sub>1</sub> a<sub>0</sub> with 0≤a<sub>i</sub>&lt;10 for all i and a<sub>k</sub>&gt;0. Then N is palindromic if and only if a<sub>i</sub>=a<sub>k-i</sub> for all i. Zero is written 0 and is also palindromic by definition.</p>
+<p>Non-palindromic numbers can be paired with palindromic ones via a series of operations. First, the non-palindromic number is reversed and the result is added to the original number. If the result is not a palindromic number, this is repeated until it gives a palindromic number. Such number is called a delayed palindrome. (Quoted from <a href="https://en.wikipedia.org/wiki/Palindromic_number" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Palindromic_number</a> )</p>
+<p>Given any positive integer, you are supposed to find its paired palindromic number.</p>
+<h5 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h5><p>Each input file contains one test case which gives a positive integer no more than 1000 digits.</p>
+<h5 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h5><p>For each test case, print line by line the process of finding the palindromic number. The format of each line is the following:</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A + <span class="keyword">B </span>= C</span><br></pre></td></tr></table></figure>
+
+<p>where A is the original number, B is the reversed A, and C is their sum. A starts being the input number, and this process ends until C becomes a palindromic number – in this case we print in the last line <code>C is a palindromic number.</code>; or if a palindromic number cannot be found in 10 iterations, print <code>Not found in 10 iterations.</code>instead.</p>
+<h5 id="Sample-Input1"><a href="#Sample-Input1" class="headerlink" title="Sample Input1:"></a>Sample Input1:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">97152</span><br></pre></td></tr></table></figure>
+<h5 id="Sample-Output1"><a href="#Sample-Output1" class="headerlink" title="Sample Output1:"></a>Sample Output1:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">97152 + 25179 &#x3D; 122331</span><br><span class="line">122331 + 133221 &#x3D; 255552</span><br><span class="line">255552 is a palindromic number.</span><br></pre></td></tr></table></figure>
+<h5 id="Sample-Input2"><a href="#Sample-Input2" class="headerlink" title="Sample Input2:"></a>Sample Input2:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">196</span><br></pre></td></tr></table></figure>
+<h5 id="Sample-Output2"><a href="#Sample-Output2" class="headerlink" title="Sample Output2:"></a>Sample Output2:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">196 + 691 &#x3D; 887</span><br><span class="line">887 + 788 &#x3D; 1675</span><br><span class="line">1675 + 5761 &#x3D; 7436</span><br><span class="line">7436 + 6347 &#x3D; 13783</span><br><span class="line">13783 + 38731 &#x3D; 52514</span><br><span class="line">52514 + 41525 &#x3D; 94039</span><br><span class="line">94039 + 93049 &#x3D; 187088</span><br><span class="line">187088 + 880781 &#x3D; 1067869</span><br><span class="line">1067869 + 9687601 &#x3D; 10755470</span><br><span class="line">10755470 + 07455701 &#x3D; 18211171</span><br><span class="line">Not found in 10 iterations.</span><br></pre></td></tr></table></figure>
+
+
+<h5 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h5><ol>
+<li>判断回文数：给出一个数，若不是回文数则将概数与其逆序数相加，然后判断和是否为回文数，若不是则继续加其逆序数。</li>
+<li>此题思路其实是很简单的，主要就是char和int之间的转换问题与大数的处理问题，一开始我想偷懒用stoi函数和to_string函数来进行类型转换，洋洋洒洒的写完不到30行代码，满心欢喜地提交上去结果最后一个测试点“运行时错误”，一直没有找到原因，后来发现题目要求输入的数据位数高达100位，很明显超出了int型甚至是llint，也就是说只能一个字符一个字符的去处理。</li>
+<li>Note：<ul>
+<li>首位进位问题：由于可能发生首位进位问题，所以会导致最后的结果字符串比原来的位数多一位，这种情况可以使用字符串的加法，如果发生进位直接在字符串的前面加上字符‘1’即可（感谢柳神，我一开始只能想到用栈或者提前判断结果字符串的位数）；</li>
+<li>由于加法是从低位到高位的计算，所以结果字符串应该从末尾开始保存，此时在初始化结果字符串时就不能将sum初始化为字符串，应初始化为与最低位所在位相同长度的字符串（比如要从第n-1位往前保存，就需要初始化n-1位，本题可以直接将sum初始化为s1字符串）。</li>
+</ul>
+</li>
+</ol>
+<h5 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">add</span><span class="params">(<span class="built_in">string</span> s1, <span class="built_in">string</span> s2 )</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> p = <span class="number">0</span>;<span class="comment">//p为进位标志,q为总位数是否发生改变标志</span></span><br><span class="line">	<span class="built_in">string</span> sum = s1;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = s1.<span class="built_in">size</span>() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">		sum[i] = (s1[i] - <span class="string">'0'</span> + s2[i] - <span class="string">'0'</span> + p) % <span class="number">10</span> + <span class="string">'0'</span>;</span><br><span class="line">		p = ((s1[i] - <span class="string">'0'</span>) + (s2[i] - <span class="string">'0'</span>) + p) / <span class="number">10</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (p &gt; <span class="number">0</span>)sum = <span class="string">'1'</span> + sum;</span><br><span class="line">	<span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> s1, s2,sum;</span><br><span class="line">	<span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; s1;</span><br><span class="line">	<span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">		s2 = s1;</span><br><span class="line">		reverse(s2.<span class="built_in">begin</span>(), s2.<span class="built_in">end</span>());</span><br><span class="line">		<span class="keyword">if</span> (s2 == s1) &#123; <span class="built_in">cout</span> &lt;&lt; s1 &lt;&lt; <span class="string">" is a palindromic number."</span> &lt;&lt; <span class="built_in">endl</span>; <span class="keyword">break</span>; &#125;</span><br><span class="line">		sum = add(s1, s2);</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; s1 &lt;&lt; <span class="string">" + "</span> &lt;&lt; s2 &lt;&lt; <span class="string">" = "</span> &lt;&lt; sum &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">if</span> (k == <span class="number">9</span>) &#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Not found in 10 iterations."</span> &lt;&lt; <span class="built_in">endl</span>; <span class="keyword">break</span>; &#125;</span><br><span class="line">		s1 = sum;</span><br><span class="line">		k++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><font color=pink>xixixixixixi~</font><br><font color=pink>祝大家编程愉快，笔芯ღ( ´･ᴗ･` )</font></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%9B%9E%E6%96%87%E6%95%B0/" rel="tag"># 回文数</a>
+              <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag"># 字符串</a>
+              <a href="/tags/%E5%A4%A7%E6%95%B0/" rel="tag"># 大数</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/01/Advanced%20PAT/1137-Final-Grading/" rel="prev" title="1137 Final Grading (25分)">
+      <i class="fa fa-chevron-left"></i> 1137 Final Grading (25分)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/04/Advanced%20PAT/1139-First-Contact/" rel="next" title="1139 First Contact (30分)">
+      1139 First Contact (30分) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#笑一笑，十年少"><span class="nav-number">1.</span> <span class="nav-text"> 笑一笑，十年少 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#xixixixi-xixixixi-xixixixi-xixixixi-xixixixi"><span class="nav-number">2.</span> <span class="nav-text">xixixixi ~ xixixixi ~ xixixixi ~ xixixixi ~ xixixixi </span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Directions"><span class="nav-number">2.1.</span> <span class="nav-text">Directions:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Input-Specification"><span class="nav-number">2.2.</span> <span class="nav-text">Input Specification:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Output-Specification"><span class="nav-number">2.3.</span> <span class="nav-text">Output Specification:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sample-Input1"><span class="nav-number">2.4.</span> <span class="nav-text">Sample Input1:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sample-Output1"><span class="nav-number">2.5.</span> <span class="nav-text">Sample Output1:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sample-Input2"><span class="nav-number">2.6.</span> <span class="nav-text">Sample Input2:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sample-Output2"><span class="nav-number">2.7.</span> <span class="nav-text">Sample Output2:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分析："><span class="nav-number">2.8.</span> <span class="nav-text">分析：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实现"><span class="nav-number">2.9.</span> <span class="nav-text">实现</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.6.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='228, 106, 163' opacity='0.5' zIndex='-1' count='99' src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@latest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

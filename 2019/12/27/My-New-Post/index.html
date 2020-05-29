@@ -46,13 +46,15 @@
   };
 </script>
 
-  <meta property="og:type" content="article">
+  <meta name="description" content="#include #include #include #include #include using namespace std;typedef pair&lt;int, int&gt;PAIR;bool cmp(PAIR a, PAIR b) {    if (a.second &#x3D;&#x3D; b.second)return a.first &lt; b.first;    else return a.s">
+<meta property="og:type" content="article">
 <meta property="og:title" content="My New Post">
 <meta property="og:url" content="http://yoursite.com/2019/12/27/My-New-Post/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="#include #include #include #include #include using namespace std;typedef pair&lt;int, int&gt;PAIR;bool cmp(PAIR a, PAIR b) {    if (a.second &#x3D;&#x3D; b.second)return a.first &lt; b.first;    else return a.s">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-12-27T07:40:25.000Z">
-<meta property="article:modified_time" content="2019-12-27T07:40:25.747Z">
+<meta property="article:modified_time" content="2020-02-14T07:47:19.594Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -156,21 +158,6 @@
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
 
   </li>
-        <li class="menu-item menu-item-schedule">
-
-    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>Schedule</a>
-
-  </li>
-        <li class="menu-item menu-item-sitemap">
-
-    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>Sitemap</a>
-
-  </li>
-        <li class="menu-item menu-item-commonweal">
-
-    <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>Commonweal 404</a>
-
-  </li>
   </ul>
 
 </nav>
@@ -222,6 +209,13 @@
 
               <time title="Created: 2019-12-27 15:40:25" itemprop="dateCreated datePublished" datetime="2019-12-27T15:40:25+08:00">2019-12-27</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-14 15:47:19" itemprop="dateModified" datetime="2020-02-14T15:47:19+08:00">2020-02-14</time>
+              </span>
 
           
 
@@ -234,7 +228,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <p>#include <iostream><br>#include <algorithm><br>#include <unordered_map><br>#include <vector><br>#include <cstdio><br>using namespace std;<br>typedef pair&lt;int, int&gt;PAIR;<br>bool cmp(PAIR a, PAIR b) {<br>    if (a.second == b.second)return a.first &lt; b.first;<br>    else return a.second &gt; b.second;<br>}<br>int main() {<br>    unordered_map&lt;int, int&gt;m;<br>    vector<int>arr;<br>    int n, k, start;<br>    scanf(“%d %d %d”, &amp;n, &amp;k, &amp;start);<br>    m[start] = 1;<br>    for (int i = 1; i &lt; n; i++) {<br>        int a;<br>        scanf(“%d”, &amp;a);<br>        vector<PAIR>vec(m.begin(), m.end());<br>        sort(vec.begin(), vec.end(), cmp);<br>        printf(“%d:”, a);<br>        int j = 0;<br>        for (auto it : vec) {<br>            printf(“ %d”, it.first);<br>            j++;<br>            if (j &gt;= k)break;<br>        }<br>            printf(“\n”);<br>        if (m[a] &lt; 0)m[a] = 1;<br>        else m[a]++;<br>    }<br>    return 0;<br>}</p>
+
     </div>
 
     
@@ -328,17 +323,21 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
         <span class="site-state-item-count">2</span>
-        <span class="site-state-item-name">categories</span>
+        <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">11</span>
-        <span class="site-state-item-name">tags</span>
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
