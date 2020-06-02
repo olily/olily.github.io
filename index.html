@@ -211,7 +211,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-01 16:10:58" itemprop="dateModified" datetime="2020-06-01T16:10:58+08:00">2020-06-01</time>
+                <time title="Modified: 2020-06-02 15:40:19" itemprop="dateModified" datetime="2020-06-02T15:40:19+08:00">2020-06-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -237,13 +237,25 @@
 
       
           <h4 id="笑一笑，十年少"><a href="#笑一笑，十年少" class="headerlink" title=" 笑一笑，十年少 "></a><font color=pink> 笑一笑，十年少 </font></h4><h4 id="xixixixi-xixixixi-xixixixi-xixixixi-xixixixi"><a href="#xixixixi-xixixixi-xixixixi-xixixixi-xixixixi" class="headerlink" title="xixixixi ~ xixixixi ~ xixixixi ~ xixixixi ~ xixixixi "></a><font color=pink>xixixixi ~ xixixixi ~ xixixixi ~ xixixixi ~ xixixixi </font></h4><p>距离上一次整理博客已经是三个月之前了<br>因为考研复试结束，所以决定重拾之~<br>然鹅。。。。。各种问题<br>比如，今天的问题就是：通过bash执行<code>hexo deploy</code>更新git时，会弹出登录窗，并且需要登录两次，但是总是账号密码不正确</p>
+<img src="http://qb4girstw.bkt.clouddn.com/images/logonfailed.jpg">
+
 <hr>
 <p>首先考虑是否是在github的SSH协议秘钥已经过期了<br>于是，删除原有的.ssh下的文件<br>并通过连续执行以下命令：</p>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"username"</span></span><br><span class="line">ssh-agent -s</span><br><span class="line">ssh-<span class="keyword">add</span></span><br></pre></td></tr></table></figure>
 <p>重新生成秘钥（username一般都是邮箱）<br>通过<code>clip &lt; ~/.ssh/id_rsa.pub</code>将刚生成的秘钥复制到剪切板，可直接粘贴到github中的ssh中<br>测试是否能够连接<code>ssh -T git@github.com</code><br>发现是可以连接的，但还是没有解决登录问题</p>
-<img src="http://qb4girstw.bkt.clouddn.com//images/deploy_need_login_problem/localconnetiontrue.jpg">
+<img src="http://qb4girstw.bkt.clouddn.com/images/localconnetiontrue.jpg">
 
 <hr>
+<p>尝试通过github desk top来更新git<br>本地commit没有任何问题，但是publish不成功</p>
+<img src="http://qb4girstw.bkt.clouddn.com/images/logonfailed.jpg">
+
+<hr>
+<p>执行<code>ssh -T git@github.com</code>命令成功<br>说明本地与远程是可以成功连接上的<br>但是为什么不能更新git的该项目，那么可以考虑是否是配置文件出了问题<br>检查<code>_config.yml</code>配置文件中的<code>deploy</code>相关配置项<code>repo</code>库的地址<br>找到问题:</p>
+<figure class="highlight plain"><figcaption><span>http://github.com/olily/olily.github.io.git```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">修改后</span><br><span class="line">&#96;&#96;&#96;repo: git@github.com:olily&#x2F;olily.github.io.git</span><br></pre></td></tr></table></figure>
+<p>为什么会出现这种问题我也不太清楚~<br>有猜测说是因为hexo是通过ssh协议解析访问repo,而不支持http协议,所以无法解析http类型的链接(笔者对这方面不太了解)</p>
+<hr>
+<p>好在,最后,问题解决~<br>成功更新git,又可以开心写blog啦</p>
+<p><font color=pink>xixixixixixi~</font><br><font color=pink>祝大家编程愉快，笔芯ღ( ´･ᴗ･` )</font></p>
 
       
     </div>
